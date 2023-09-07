@@ -6,11 +6,9 @@ namespace UiAnimation
 	[Serializable]
 	public class SizeAnimation : UiAnimatorBase
 	{
-		[SerializeField] public RectTransform rect;
-		[SerializeField] public Vector2 from = Vector2.zero;
-		[SerializeField] public Vector2 to = Vector2.zero;
-
-		public override float AnimationTime => animationTime;
+		[SerializeField] private RectTransform rect;
+		[SerializeField] private Vector2 from = Vector2.zero;
+		[SerializeField] private Vector2 to = Vector2.zero;
 
 		public override void OnInit( )
 		{

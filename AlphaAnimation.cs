@@ -6,14 +6,12 @@ namespace UiAnimation
 	[Serializable]
 	public class AlphaAnimation : UiAnimatorBase
 	{
-		[SerializeField] public CanvasGroup cg;
-		[SerializeField] public bool autoOff = false;
+		[SerializeField] private CanvasGroup cg;
+		[SerializeField] private bool autoOff = false;
 		[Range( 0f, 1.0f )]
-		[SerializeField] public float from = 0;
+		[SerializeField] private float from = 0;
 		[Range( 0f, 1.0f )]
-		[SerializeField] public float to = 1;
-
-		public override float AnimationTime => animationTime;
+		[SerializeField] private float to = 1;
 
 		public override void OnInit( )
 		{

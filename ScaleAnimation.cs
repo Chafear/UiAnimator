@@ -6,11 +6,9 @@ namespace UiAnimation
 	[Serializable]
 	public class ScaleAnimation : UiAnimatorBase
 	{
-		[SerializeField] public GameObject gameObject;
-		[SerializeField] public Vector3 from = Vector3.one;
-		[SerializeField] public Vector3 to = Vector3.one * 1.2f;
-
-		public override float AnimationTime => animationTime;
+		[SerializeField] private GameObject gameObject;
+		[SerializeField] private Vector3 from = Vector3.one;
+		[SerializeField] private Vector3 to = Vector3.one * 1.2f;
 
 		public override void OnInit( )
 		{

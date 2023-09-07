@@ -257,7 +257,6 @@ namespace UiAnimation
 
 		private void DrawDownButton( int index )
 		{
-
 			if ( GUILayout.Button( "\u21b4", EditorStyles.miniButtonRight, GUILayout.MaxWidth( 20 ) ) )
 			{
 				animator.Down( index );

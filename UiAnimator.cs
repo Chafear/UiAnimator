@@ -6,7 +6,7 @@ namespace UiAnimation
 {
 	public class UiAnimator : MonoBehaviour
 	{
-		[SerializeField] public bool AllowInit = true;
+		[SerializeField] private bool AllowInit = true;
 		[SerializeField] private List<UiAnimatorItem> items = new List<UiAnimatorItem>( );
 
 		private float playInTime;
@@ -100,9 +100,9 @@ namespace UiAnimation
 			foreach ( var item in items )
 			{
 				var animation = item.SelectedAnimation;
-				var timeIn = animation.AnimationTime + animation.inDelay;
+				var timeIn = animation.AnimationTime + animation.InDelay;
 				playInTime = playInTime > timeIn ? playInTime : timeIn;
-				var timeOut = animation.AnimationTime + animation.inDelay;
+				var timeOut = animation.AnimationTime + animation.OutDelay;
 				playOutTime = playOutTime > timeOut ? playOutTime : timeOut;
 			}
 		}

@@ -9,17 +9,14 @@ namespace UiAnimation
 		[SerializeField] private bool isLocal = true;
 		[SerializeField] private EMoveType moveType = EMoveType.Percent;
 		[Range( -1.0f, 1.0f )]
-		[SerializeField] public float xOffset = 0;
+		[SerializeField] private float xOffset = 0;
 		[Range( -1.0f, 1.0f )]
-		[SerializeField] public float yOffset = 0;
-		[SerializeField] public float xOffsetUnits = 0;
-		[SerializeField] public float yOffsetUnits = 0;
-
-		[SerializeField] public GameObject moveObject;
+		[SerializeField] private float yOffset = 0;
+		[SerializeField] private float xOffsetUnits = 0;
+		[SerializeField] private float yOffsetUnits = 0;
+		[SerializeField] private GameObject moveObject;
 
 		private Vector3 startPos;
-
-		public override float AnimationTime => animationTime;
 
 		public override void OnInit( )
 		{

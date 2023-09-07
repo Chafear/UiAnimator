@@ -5,23 +5,25 @@ namespace UiAnimation
 {
 	public abstract class UiAnimatorBase
 	{
-		[SerializeField] public bool isActive = true;
-		[SerializeField] public bool autoPlay = false;
-		[SerializeField] public bool isInverse = false;
-		[SerializeField] public bool resetOnStart = false;
+		[SerializeField] protected bool isActive = true;
+		[SerializeField] protected bool autoPlay = false;
+		[SerializeField] protected bool isInverse = false;
+		[SerializeField] protected bool resetOnStart = false;
 		[Header( "Easings" )]
-		[SerializeField] public LeanTweenType appearEasing = LeanTweenType.easeOutCubic;
-		[SerializeField] public LeanTweenType dissapearEasing = LeanTweenType.easeInCubic;
+		[SerializeField] protected LeanTweenType appearEasing = LeanTweenType.easeOutCubic;
+		[SerializeField] protected LeanTweenType dissapearEasing = LeanTweenType.easeInCubic;
 		[Header( "Time Settings" )]
-		[SerializeField] public float inDelay = 0f;
-		[SerializeField] public float outDelay = 0;
-		[SerializeField] public float animationTime = .2f;
+		[SerializeField] protected float inDelay = 0f;
+		[SerializeField] protected float outDelay = 0;
+		[SerializeField] protected float animationTime = .2f;
 
 		protected bool isInited = false;
 
 		protected List<int> animIds = new List<int>( );
 
-		public virtual float AnimationTime { get; }
+		public float AnimationTime => animationTime;
+		public float InDelay => inDelay;
+		public float OutDelay => outDelay;
 
 		public abstract void OnInit( );
 
