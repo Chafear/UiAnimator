@@ -4,7 +4,7 @@ using UnityEngine;
 namespace UiAnimation
 {
 	[Serializable]
-	public class AlphaAnimation : UiAnimatorBase
+	public class AlphaAnimator : UiAnimatorBase
 	{
 		[SerializeField] private CanvasGroup cg;
 		[SerializeField] private bool autoOff = false;

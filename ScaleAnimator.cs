@@ -4,7 +4,7 @@ using UnityEngine;
 namespace UiAnimation
 {
 	[Serializable]
-	public class ScaleAnimation : UiAnimatorBase
+	public class ScaleAnimator : UiAnimatorBase
 	{
 		[SerializeField] private GameObject gameObject;
 		[SerializeField] private Vector3 from = Vector3.one;
