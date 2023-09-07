@@ -23,21 +23,14 @@ namespace UiAnimation
 		private void Awake( )
 		{
 			if ( AllowInit ) Init( );
-			foreach ( var item in items )
-			{
-				var animation = item.SelectedAnimation;
-				var timeIn = animation.AnimationTime + animation.inDelay;
-				playInTime = playInTime > timeIn ? playInTime : timeIn;
-				var timeOut = animation.AnimationTime + animation.inDelay;
-				playOutTime = playOutTime > timeOut ? playOutTime : timeOut;
-			}
+			CalculateAnimationTimes( );
 		}
 
 		public void SetOnFinishInCallback( Action onFinishInCallback )
 		{
 			this.onFinishInCallback = onFinishInCallback;
 		}
-		
+
 		public void SetOnFinishOutCallback( Action onFinishOutCallback )
 		{
 			this.onFinishOutCallback = onFinishOutCallback;
@@ -55,11 +48,11 @@ namespace UiAnimation
 
 		public void Down( int index )
 		{
-			if(items.Count - 1 == index ) return;
-			var tempA = items[ index ];
-			var tempB = items[index+1];
-			items[ index ] = tempB;
-			items[ index+1 ] = tempA;
+			if ( items.Count - 1 == index ) return;
+			var tempA = items[index];
+			var tempB = items[index + 1];
+			items[index] = tempB;
+			items[index + 1] = tempA;
 		}
 
 		public void Up( int index )
@@ -100,6 +93,18 @@ namespace UiAnimation
 		public void Out( bool insta )
 		{
 			foreach ( var item in items ) { item.Out( insta ); }
+		}
+
+		private void CalculateAnimationTimes( )
+		{
+			foreach ( var item in items )
+			{
+				var animation = item.SelectedAnimation;
+				var timeIn = animation.AnimationTime + animation.inDelay;
+				playInTime = playInTime > timeIn ? playInTime : timeIn;
+				var timeOut = animation.AnimationTime + animation.inDelay;
+				playOutTime = playOutTime > timeOut ? playOutTime : timeOut;
+			}
 		}
 	}
 }
