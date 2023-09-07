@@ -7,7 +7,7 @@ namespace UiAnimation
 {
 #if UNITY_EDITOR
 	[CustomEditor( typeof( UiAnimator ) )]
-	public class UiAnimatorPrimeEditor : Editor
+	public class UiAnimatorEditor : Editor
 	{
 		private const int DefaultArgumetnsCount = 8;
 		private const string NotSet = "NOT SET!!!";
