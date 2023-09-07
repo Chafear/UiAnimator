@@ -73,10 +73,12 @@ namespace UiAnimation
 				// delayOut         5
 				// animTime         6
 				// isInverse        7
+
 				FillCommonList( moveProperties, move );
 				FillCommonList( alphaProperties, alpha );
 				FillCommonList( sizeProperties, size );
 				FillCommonList( scaleProperties, scale );
+
 				moveProperties.Add( move.FindPropertyRelative( "xOffset" ) );
 				moveProperties.Add( move.FindPropertyRelative( "yOffset" ) );
 				moveProperties.Add( move.FindPropertyRelative( "moveObject" ) );
@@ -99,20 +101,13 @@ namespace UiAnimation
 				scaleProperties.Add( scale.FindPropertyRelative( "gameObject" ) );
 
 				List<SerializedProperty> selectedList = new List<SerializedProperty>( );
+
 				switch ( ( EAnimationType ) selected.intValue )
 				{
-					case EAnimationType.Move:
-						selectedList = moveProperties;
-						break;
-					case EAnimationType.Alpha:
-						selectedList = alphaProperties;
-						break;
-					case EAnimationType.Scale:
-						selectedList = scaleProperties;
-						break;
-					case EAnimationType.Size:
-						selectedList = sizeProperties;
-						break;
+					case EAnimationType.Move: selectedList = moveProperties; break;
+					case EAnimationType.Alpha: selectedList = alphaProperties; break;
+					case EAnimationType.Scale: selectedList = scaleProperties; break;
+					case EAnimationType.Size: selectedList = sizeProperties; break;
 				}
 
 				if ( selected.intValue == 0 )
@@ -142,7 +137,6 @@ namespace UiAnimation
 						EditorGUI.indentLevel++;
 						EditorGUILayout.BeginVertical( CustomStyles.OutlinedBox );
 						EditorGUILayout.Space( );
-						//selectedList[0].boolValue = EditorGUILayout.Toggle( "Active", selectedList[0].boolValue );
 						selected.intValue = EditorGUILayout.Popup( "Type", selected.intValue, options );
 						selectedList[1].boolValue = EditorGUILayout.Toggle( "AutoPlay", selectedList[1].boolValue );
 						selectedList[7].boolValue = EditorGUILayout.Toggle( "IsInverse", selectedList[7].boolValue );
@@ -240,8 +234,6 @@ namespace UiAnimation
 		{
 			properties[DefaultArgumetnsCount + 3].objectReferenceValue = EditorGUILayout.
 				ObjectField( "Siz Object", properties[DefaultArgumetnsCount + 3].objectReferenceValue, typeof( RectTransform ), true );
-			//sizeProperties[9].objectReferenceValue = EditorGUILayout.
-			//		ObjectField( "Size Object", sizeProperties[9].objectReferenceValue, typeof( GameObject ), true );
 			properties[DefaultArgumetnsCount + 1].vector2Value = EditorGUILayout.Vector2Field( "From", properties[DefaultArgumetnsCount + 1].vector2Value );
 			properties[DefaultArgumetnsCount + 2].vector2Value = EditorGUILayout.Vector2Field( "To", properties[DefaultArgumetnsCount + 2].vector2Value );
 		}
