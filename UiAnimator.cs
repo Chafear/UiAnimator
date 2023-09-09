@@ -6,7 +6,7 @@ namespace UiAnimation
 {
 	public class UiAnimator : MonoBehaviour
 	{
-		[SerializeField] private bool AllowInit = true;
+		[SerializeField] private bool allowInit = true;
 		[SerializeField] private List<UiAnimatorItem> items = new List<UiAnimatorItem>( );
 
 		private float playInTime;

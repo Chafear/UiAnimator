@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace UiAnimation
 {
-	public abstract class UiAnimatorBase
+	public abstract class UiAnimationBase
 	{
 		[SerializeField] protected bool isActive = true;
 		[SerializeField] protected bool autoPlay = false;

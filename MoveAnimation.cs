@@ -4,7 +4,7 @@ using UnityEngine;
 namespace UiAnimation
 {
 	[Serializable]
-	public class MoveAnimator : UiAnimatorBase
+	public class MoveAnimation : UiAnimationBase
 	{
 		[SerializeField] private bool isLocal = true;
 		[SerializeField] private EMoveType moveType = EMoveType.Percent;
@@ -35,9 +35,7 @@ namespace UiAnimation
 				var xy = GetXY( );
 				moveObject.transform.position = startPos
 					+ new Vector3( xy.x, xy.y, 0 );
-			}
-
-			else
+			} else
 			{
 				var xy = GetXY( );
 				moveObject.transform.localPosition = startPos
@@ -64,8 +62,7 @@ namespace UiAnimation
 				animIds.Add( LeanTween.move( moveObject, newPos, animationTime )
 					.setEase( dissapearEasing )
 					.setDelay( outDelay ).id );
-			}
-			else
+			} else
 			{
 				var xy = GetXY( );
 				Vector3 newPos = startPos
@@ -143,4 +140,3 @@ namespace UiAnimation
 		Percent
 	}
 }
-

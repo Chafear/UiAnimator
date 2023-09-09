@@ -7,10 +7,12 @@ namespace UiAnimation
 	public class UiAnimatorItem
 	{
 		[SerializeField] private bool foldout = true;
-		[SerializeField] private AlphaAnimator alphaAnimator = new AlphaAnimator( );
-		[SerializeField] private MoveAnimator moveAnimator = new MoveAnimator( );
-		[SerializeField] private ScaleAnimator scaleAnimator = new ScaleAnimator( );
-		[SerializeField] private SizeAnimator sizeAnimator = new SizeAnimator( );
+
+		[SerializeField] private AlphaAnimation alphaAnimation = new AlphaAnimation( );
+		[SerializeField] private MoveAnimation moveAnimation = new MoveAnimation( );
+		[SerializeField] private ScaleAnimation scaleAnimation = new ScaleAnimation( );
+		[SerializeField] private SizeAnimation sizeAnimation = new SizeAnimation( );
+
 		[SerializeField] private EAnimationType selected;
 
 		private UiAnimatorBase selectedAnimation;

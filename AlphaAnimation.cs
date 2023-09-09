@@ -4,7 +4,7 @@ using UnityEngine;
 namespace UiAnimation
 {
 	[Serializable]
-	public class AlphaAnimator : UiAnimatorBase
+	public class AlphaAnimation : UiAnimationBase
 	{
 		[SerializeField] private CanvasGroup cg;
 		[SerializeField] private bool autoOff = false;
@@ -46,7 +46,6 @@ namespace UiAnimation
 					}
 				} )
 				.id );
-
 		}
 
 		public override void OutPlay( bool insta = false )

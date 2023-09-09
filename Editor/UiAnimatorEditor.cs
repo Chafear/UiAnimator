@@ -55,10 +55,10 @@ namespace UiAnimation
 
 				var selected = item.FindPropertyRelative( "selected" );
 				string status = $"{( EAnimationType ) selected.intValue} Animation";
-				SerializedProperty move = item.FindPropertyRelative( "moveAnimator" );
-				SerializedProperty alpha = item.FindPropertyRelative( "alphaAnimator" );
-				SerializedProperty size = item.FindPropertyRelative( "sizeAnimator" );
-				SerializedProperty scale = item.FindPropertyRelative( "scaleAnimator" );
+				SerializedProperty move = item.FindPropertyRelative( "moveAnimation" );
+				SerializedProperty alpha = item.FindPropertyRelative( "alphaAnimation" );
+				SerializedProperty size = item.FindPropertyRelative( "sizeAnimation" );
+				SerializedProperty scale = item.FindPropertyRelative( "scaleAnimation" );
 
 				List<SerializedProperty> moveProperties = new List<SerializedProperty>( );
 				List<SerializedProperty> alphaProperties = new List<SerializedProperty>( );

@@ -4,7 +4,7 @@ using UnityEngine;
 namespace UiAnimation
 {
 	[Serializable]
-	public class SizeAnimator : UiAnimatorBase
+	public class SizeAnimation : UiAnimationBase
 	{
 		[SerializeField] private RectTransform rect;
 		[SerializeField] private Vector2 from = Vector2.zero;
@@ -31,9 +31,9 @@ namespace UiAnimation
 				rect.sizeDelta = to;
 				return;
 			}
-			animIds[1] = LeanTween.size( rect, to, animationTime )
+			animIds.Add( LeanTween.size( rect, to, animationTime )
 				.setEase( appearEasing )
-				.setDelay( inDelay ).id;
+				.setDelay( inDelay ).id );
 		}
 
 		public override void OutPlay( bool insta = false )
@@ -47,10 +47,9 @@ namespace UiAnimation
 				rect.sizeDelta = from;
 				return;
 			}
-			animIds[1] = LeanTween.size( rect, from, animationTime )
+			animIds.Add( LeanTween.size( rect, from, animationTime )
 				.setEase( dissapearEasing )
-				.setDelay( outDelay ).id;
-
+				.setDelay( outDelay ).id );
 		}
 
 		public void ResetToFrom( )
