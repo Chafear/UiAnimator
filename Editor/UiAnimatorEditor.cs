@@ -20,9 +20,10 @@ namespace UiAnimation
 		public override void OnInspectorGUI( )
 		{
 			serializedObject.Update( );
-			
-			var allowInit = serializedObject.FindProperty( "allowInit" );
-			allowInit.boolValue = EditorGUILayout.Toggle( "Allow Init", allowInit.boolValue );
+
+			EditorGUILayout.PropertyField( serializedObject.FindProperty( "allowInit" ) );
+			//var allowInit = serializedObject.FindProperty( "allowInit" );
+			//allowInit.boolValue = EditorGUILayout.Toggle( "Allow Init", allowInit.boolValue );
 			DrawContent( );
 			EditorGUILayout.Space( );
 			EditorGUILayout.Space( );
@@ -46,9 +47,6 @@ namespace UiAnimation
 			{
 				var item = serializedObject.FindProperty( "items" ).GetArrayElementAtIndex( i );
 				var foldout = item.FindPropertyRelative( "foldout" );
-
-				string[] options = Enum.GetNames( typeof( EAnimationType ) );
-				string[] easings = Enum.GetNames( typeof( LeanTweenType ) );
 
 				var selected = item.FindPropertyRelative( "selected" );
 				string status = $"{( EAnimationType ) selected.intValue} Animation";
@@ -245,7 +243,6 @@ namespace UiAnimation
 
 		private string CheckStatusIfObjectSet( SerializedProperty property, string objectId )
 		{
-			Debug.Log( property == null );
 			var reference = property.FindPropertyRelative( objectId ).objectReferenceValue;
 			return reference == null ? $" -> {NotSet}" : $" -> {reference?.name}";
 		}
