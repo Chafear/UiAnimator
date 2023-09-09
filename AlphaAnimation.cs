@@ -6,8 +6,8 @@ namespace UiAnimation
 	[Serializable]
 	public class AlphaAnimation : UiAnimationBase
 	{
-		[SerializeField] private CanvasGroup cg;
-		[SerializeField] private bool autoOff = false;
+		[SerializeField] private CanvasGroup canvasGroup;
+		[SerializeField] private bool autoDisableCanvasGroup = false;
 		[Range( 0f, 1.0f )]
 		[SerializeField] private float from = 0;
 		[Range( 0f, 1.0f )]
@@ -15,34 +15,34 @@ namespace UiAnimation
 
 		public override void OnInit( )
 		{
-			if ( cg == null )
+			if ( canvasGroup == null )
 			{
 				isActive = false;
 				return;
 			}
 			isInited = true;
 			if ( !autoPlay ) return;
-			cg.alpha = from;
+			canvasGroup.alpha = from;
 		}
 
 		public override void InPlay(bool insta = false )
 		{
 			CancelAnim( );
-			if ( resetOnStart ) cg.alpha = from;
+			if ( resetOnStart ) canvasGroup.alpha = from;
 			if( insta )
 			{
-				cg.alpha = to;
+				canvasGroup.alpha = to;
 				return;
 			}
-			animIds.Add( LeanTween.alphaCanvas( cg, to, animationTime )
+			animIds.Add( LeanTween.alphaCanvas( canvasGroup, to, animationTime )
 				.setEase( appearEasing )
 				.setDelay( inDelay )
 				.setOnComplete( ( ) =>
 				{
-					if ( autoOff )
+					if ( autoDisableCanvasGroup )
 					{
-						cg.blocksRaycasts = true;
-						cg.interactable = true;
+						canvasGroup.blocksRaycasts = true;
+						canvasGroup.interactable = true;
 					}
 				} )
 				.id );
@@ -51,26 +51,26 @@ namespace UiAnimation
 		public override void OutPlay( bool insta = false )
 		{
 			CancelAnim( );
-			if ( resetOnStart ) cg.alpha = to;
+			if ( resetOnStart ) canvasGroup.alpha = to;
 			if ( insta )
 			{
-				cg.alpha = from;
-				if ( autoOff )
+				canvasGroup.alpha = from;
+				if ( autoDisableCanvasGroup )
 				{
-					cg.blocksRaycasts = false;
-					cg.interactable = false;
+					canvasGroup.blocksRaycasts = false;
+					canvasGroup.interactable = false;
 				}
 				return;
 			}
-			animIds.Add( LeanTween.alphaCanvas( cg, from, animationTime )
+			animIds.Add( LeanTween.alphaCanvas( canvasGroup, from, animationTime )
 				.setEase( dissapearEasing )
 				.setDelay( outDelay )
 				.setOnComplete( ( ) =>
 				{
-					if ( autoOff )
+					if ( autoDisableCanvasGroup )
 					{
-						cg.blocksRaycasts = false;
-						cg.interactable = false;
+						canvasGroup.blocksRaycasts = false;
+						canvasGroup.interactable = false;
 					}
 				} )
 				.id );

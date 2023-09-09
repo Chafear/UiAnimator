@@ -6,32 +6,32 @@ namespace UiAnimation
 	[Serializable]
 	public class ScaleAnimation : UiAnimationBase
 	{
-		[SerializeField] private GameObject gameObject;
+		[SerializeField] private GameObject scaleObject;
 		[SerializeField] private Vector3 from = Vector3.one;
 		[SerializeField] private Vector3 to = Vector3.one;
 
 		public override void OnInit( )
 		{
-			if ( gameObject == null )
+			if ( scaleObject == null )
 			{
 				isActive = false;
 				return;
 			}
 			isInited = true;
 			if ( !autoPlay ) return;
-			gameObject.transform.localScale = from;
+			scaleObject.transform.localScale = from;
 		}
 
 		public override void InPlay(bool insta = false )
 		{
 			CancelAnim( );
-			if ( resetOnStart ) gameObject.transform.localScale = from;
+			if ( resetOnStart ) scaleObject.transform.localScale = from;
 			if ( insta )
 			{
-				gameObject.transform.localScale = to;
+				scaleObject.transform.localScale = to;
 				return;
 			}
-			animIds.Add( LeanTween.scale( gameObject, to, animationTime )
+			animIds.Add( LeanTween.scale( scaleObject, to, animationTime )
 				.setEase( appearEasing )
 				.setDelay( inDelay ).id);
 
@@ -42,14 +42,14 @@ namespace UiAnimation
 			CancelAnim( );
 			if ( insta )
 			{
-				gameObject.transform.localScale = from;
+				scaleObject.transform.localScale = from;
 				return;
 			}
 
-			if ( resetOnStart ) gameObject.transform.localScale = to;
+			if ( resetOnStart ) scaleObject.transform.localScale = to;
 
-			gameObject.transform.localScale = to;
-			animIds.Add( LeanTween.scale( gameObject, from, animationTime )
+			scaleObject.transform.localScale = to;
+			animIds.Add( LeanTween.scale( scaleObject, from, animationTime )
 				.setEase( dissapearEasing )
 				.setDelay( outDelay ).id);
 		}

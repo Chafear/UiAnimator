@@ -22,7 +22,7 @@ namespace UiAnimation
 
 		private void Awake( )
 		{
-			if ( AllowInit ) Init( );
+			if ( allowInit ) Init( );
 			CalculateAnimationTimes( );
 		}
 

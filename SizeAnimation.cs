@@ -6,32 +6,32 @@ namespace UiAnimation
 	[Serializable]
 	public class SizeAnimation : UiAnimationBase
 	{
-		[SerializeField] private RectTransform rect;
+		[SerializeField] private RectTransform toResize;
 		[SerializeField] private Vector2 from = Vector2.zero;
 		[SerializeField] private Vector2 to = Vector2.zero;
 
 		public override void OnInit( )
 		{
-			if ( rect == null )
+			if ( toResize == null )
 			{
 				isActive = false;
 				return;
 			}
 			isInited = true;
 			if ( !autoPlay ) return;
-			rect.sizeDelta = from;
+			toResize.sizeDelta = from;
 		}
 
 		public override void InPlay(bool insta = false )
 		{
 			CancelAnim( );
-			if ( resetOnStart ) rect.sizeDelta = from;
+			if ( resetOnStart ) toResize.sizeDelta = from;
 			if( insta )
 			{
-				rect.sizeDelta = to;
+				toResize.sizeDelta = to;
 				return;
 			}
-			animIds.Add( LeanTween.size( rect, to, animationTime )
+			animIds.Add( LeanTween.size( toResize, to, animationTime )
 				.setEase( appearEasing )
 				.setDelay( inDelay ).id );
 		}
@@ -41,20 +41,20 @@ namespace UiAnimation
 			if ( !isActive ) return;
 
 			CancelAnim( );
-			if ( resetOnStart ) rect.sizeDelta = to;
+			if ( resetOnStart ) toResize.sizeDelta = to;
 			if ( insta )
 			{
-				rect.sizeDelta = from;
+				toResize.sizeDelta = from;
 				return;
 			}
-			animIds.Add( LeanTween.size( rect, from, animationTime )
+			animIds.Add( LeanTween.size( toResize, from, animationTime )
 				.setEase( dissapearEasing )
 				.setDelay( outDelay ).id );
 		}
 
 		public void ResetToFrom( )
 		{
-			rect.sizeDelta = from;
+			toResize.sizeDelta = from;
 		}
 	}
 }

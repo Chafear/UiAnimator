@@ -15,18 +15,18 @@ namespace UiAnimation
 
 		[SerializeField] private EAnimationType selected;
 
-		private UiAnimatorBase selectedAnimation;
+		private UiAnimationBase selectedAnimation;
 
-		public UiAnimatorBase SelectedAnimation => selectedAnimation;
+		public UiAnimationBase SelectedAnimation => selectedAnimation;
 
 		public void Init( )
 		{
 			switch ( selected )
 			{
-				case EAnimationType.Move: selectedAnimation = moveAnimator;	break;
-				case EAnimationType.Alpha: selectedAnimation = alphaAnimator; break;
-				case EAnimationType.Scale: selectedAnimation = scaleAnimator; break;
-				case EAnimationType.Size: selectedAnimation = sizeAnimator; break;
+				case EAnimationType.Move: selectedAnimation = moveAnimation; break;
+				case EAnimationType.Alpha: selectedAnimation = alphaAnimation; break;
+				case EAnimationType.Scale: selectedAnimation = scaleAnimation; break;
+				case EAnimationType.Size: selectedAnimation = sizeAnimation; break;
 			}
 			selectedAnimation.Init( );
 		}
