@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace UiAnimation
 {
-	public class UiAnimator : MonoBehaviour
+	public sealed class UiAnimator : MonoBehaviour
 	{
 		[SerializeField] private bool allowInit = true;
 		[SerializeField] private List<UiAnimatorItem> items = new List<UiAnimatorItem>( );

@@ -4,7 +4,7 @@ using UnityEngine;
 namespace UiAnimation
 {
 	[Serializable]
-	public class SizeAnimation : UiAnimationBase
+	public sealed class SizeAnimation : UiAnimationBase
 	{
 		[SerializeField] private RectTransform toResize;
 		[SerializeField] private Vector2 from = Vector2.zero;

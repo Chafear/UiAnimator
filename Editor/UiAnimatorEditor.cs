@@ -6,7 +6,7 @@ namespace UiAnimation
 {
 #if UNITY_EDITOR
 	[CustomEditor( typeof( UiAnimator ) )]
-	public class UiAnimatorEditor : Editor
+	public sealed class UiAnimatorEditor : Editor
 	{
 		private const string NotSet = "NOT SET!!!";
 
@@ -20,16 +20,12 @@ namespace UiAnimation
 		public override void OnInspectorGUI( )
 		{
 			serializedObject.Update( );
-
 			EditorGUILayout.PropertyField( serializedObject.FindProperty( "allowInit" ) );
-			//var allowInit = serializedObject.FindProperty( "allowInit" );
-			//allowInit.boolValue = EditorGUILayout.Toggle( "Allow Init", allowInit.boolValue );
 			DrawContent( );
 			EditorGUILayout.Space( );
 			EditorGUILayout.Space( );
 			DrawAddButton( );
 			serializedObject.ApplyModifiedProperties( );
-
 		}
 
 		public void OnInspectorUpdate( )

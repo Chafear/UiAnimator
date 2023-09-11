@@ -4,7 +4,7 @@ using UnityEngine;
 namespace UiAnimation
 {
 	[Serializable]
-	public class UiAnimatorItem
+	public sealed class UiAnimatorItem
 	{
 		[SerializeField] private bool foldout = true;
 

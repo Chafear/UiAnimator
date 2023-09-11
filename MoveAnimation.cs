@@ -4,7 +4,7 @@ using UnityEngine;
 namespace UiAnimation
 {
 	[Serializable]
-	public class MoveAnimation : UiAnimationBase
+	public sealed class MoveAnimation : UiAnimationBase
 	{
 		[SerializeField] private bool isLocal = true;
 		[SerializeField] private EMoveType moveType = EMoveType.Percent;
