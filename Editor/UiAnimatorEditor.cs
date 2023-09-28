@@ -77,8 +77,8 @@ namespace UiAnimation
 				}
 
 				EditorGUILayout.BeginHorizontal( );
-				bool toFold = foldout.boolValue;
-				GUIStyle selectedStyle = toFold ? CustomStyles.WhiteFold : CustomStyles.GrayFold;
+				SerializedProperty isActive = selectedProperty.FindPropertyRelative( "isActive" );
+				GUIStyle selectedStyle = isActive.boolValue ? CustomStyles.WhiteFold : CustomStyles.GrayFold;
 				foldout.boolValue = EditorGUILayout.BeginFoldoutHeaderGroup( foldout.boolValue, 
 					status, selectedStyle );
 				DrawActiveButton( selectedProperty );
